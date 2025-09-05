@@ -1,6 +1,6 @@
-package net.javaguides.springboot.service;
+package blog.webapp.springboot.service;
 
-import net.javaguides.springboot.entity.Student;
+import blog.webapp.springboot.entity.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

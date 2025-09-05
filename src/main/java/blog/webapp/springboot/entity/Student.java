@@ -1,4 +1,4 @@
-package net.javaguides.springboot.entity;
+package blog.webapp.springboot.entity;
 
 import lombok.Getter;
 import lombok.Setter;

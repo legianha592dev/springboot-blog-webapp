@@ -1,7 +1,7 @@
-package net.javaguides.springboot.controller;
+package blog.webapp.springboot.controller;
 
-import net.javaguides.springboot.entity.Student;
-import net.javaguides.springboot.service.DemoService;
+import blog.webapp.springboot.entity.Student;
+import blog.webapp.springboot.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
