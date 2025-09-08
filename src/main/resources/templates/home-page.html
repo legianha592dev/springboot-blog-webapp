@@ -86,18 +86,27 @@
     <table>
         <thead>
         <tr>
+            <th>Sr No.</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Age</th>
             <th>Email</th>
             <th>Nationality</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="student : ${listStudent}">
+        <tr th:each="student, studentStat : ${listStudent}">
+            <td th:text="${studentStat.count}"></td>
+            <td th:text="${student.id}"></td>
             <td th:text="${student.name}"></td>
             <td th:text="${student.age}"></td>
             <td th:text="${student.email}"></td>
             <td th:text="${student.nationality}"></td>
+            <td>
+                <a class="btn" th:href="@{/update/{id}(id=${student.id})}">Update</a>
+                <a class="btn" th:href="@{/delete/{id}(id=${student.id})}">Delete</a>
+            </td>
         </tr>
         </tbody>
         <br/>

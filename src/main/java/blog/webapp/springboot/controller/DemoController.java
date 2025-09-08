@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -30,11 +31,27 @@ public class DemoController {
     }
 
     @PostMapping("/save")
-    public String saveStudent(Model model, @ModelAttribute Student student) {
-        List<Student> listStudent = demoService.getAll();
-        listStudent.add(student);
+    public String saveStudent(@ModelAttribute Student student) {
+        demoService.addStudent(student);
+        return "redirect:/";
+    }
 
-        model.addAttribute("listStudent", demoService.getAll());
-        return "home-page";
+    @GetMapping("delete/{id}")
+    public String deleteStudentById(@PathVariable(name = "id") Integer id) {
+        demoService.deleteStudentById(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("update/{id}")
+    public String updateById(Model model, @PathVariable(name = "id") Integer id) {
+        Student student = demoService.getStudentById(id);
+        model.addAttribute("student", student);
+        return "edit-student";
+    }
+
+    @PostMapping("/update")
+    public String updateStudent(@ModelAttribute Student student) {
+        demoService.updateStudent(student);
+        return "redirect:/";
     }
 }

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add student</title>
+    <style>
+        body {
+          font-family: "Segoe UI", Arial, sans-serif;
+          background: #f8fafc;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          margin: 0;
+        }
+
+        .form-card {
+          background: #fff;
+          padding: 32px;
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+          width: 100%;
+          max-width: 400px;
+        }
+
+        .form-card h2 {
+          margin-bottom: 20px;
+          font-size: 20px;
+          color: #111827;
+        }
+
+        .form-group {
+          margin-bottom: 16px;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 6px;
+          font-size: 14px;
+          color: #374151;
+          font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+          width: 100%;
+          padding: 10px 12px;
+          font-size: 14px;
+          color: #111827;
+          background-color: #fff;
+          border: 1px solid #d1d5db;
+          border-radius: 6px;
+          outline: none;
+          transition: border 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus {
+          border-color: #2563eb;
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+        }
+
+        input::placeholder {
+          color: #9ca3af;
+        }
+
+        .btn {
+          width: 100%;
+          background-color: #2563eb;
+          color: #fff;
+          padding: 12px;
+          font-size: 15px;
+          font-weight: 500;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:hover {
+          background-color: #1d4ed8;
+        }
+
+        .btn:active {
+          transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Edit student</h1>
+        <br />
+    </div>
+    <div>
+    <form
+        role="form"
+        method="post"
+        th:action="@{/update}"
+        th:object="${student}"
+    >
+        <input type="hidden" th:field="*{id}">
+
+        <label>Full name:</label>
+        <input type="text" th:field="*{name}">
+        <br />
+
+        <label>Age:</label>
+        <input type="text" th:field="*{age}">
+        <br />
+
+        <label>Email:</label>
+        <input type="text" th:field="*{email}">
+        <br />
+
+        <label>Nationality:</label>
+        <input type="text" th:field="*{nationality}">
+        <br />
+
+        <button type="submit">Edit student</button>
+    </form>
+    </div>
+</body>
+</html>
